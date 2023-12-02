@@ -1,0 +1,25 @@
+BOOLEAN FLAG=FALSE;
+MESSAGE BLOCK;
+
+# プロセスA
+while(true)
+{
+    メッセージを作る;
+    while(FLAG){ };
+    メッセージをBLOCKに入れる;
+    FLAG=TRUE;
+    処理;
+}
+
+# プロセスB
+while(true)
+{
+    while(not FLAG){ };
+    メッセージをBLOCKから取り出す;
+    FLAG=FALSE;
+    処理;
+}
+
+'''
+図3.3 プロセスの協調
+'''

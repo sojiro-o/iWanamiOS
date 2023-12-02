@@ -1,0 +1,34 @@
+#define NO_OF_PROCESSES 2
+int IN[NO_OF_PROCESSES]={0,0};
+PROCESS_ID PRIORITY;
+PRIORITY=A;
+
+# プロセスA
+while(true)
+{IN[A]=1;
+    while(IN[B]==1)
+    {while(PRIORITY!=A)
+        {IN[A]=0;}
+        IN[A]=1;}
+
+    # クリティカルセクション;
+
+    PRIORITY=B;
+    IN[A]=0;}
+
+# プロセスB
+while(true)
+{IN[B]=1;
+    while(IN[A]==1)
+    {while(PRIORITY!=B)
+        {IN[B]=0;}
+        IN[B]=1;}
+
+    # クリティカルセクション;
+
+    PRIORITY=A;
+    IN[B]=0;}
+
+'''
+図3.7 排他制御のためのDekkerのアルゴリズム
+'''

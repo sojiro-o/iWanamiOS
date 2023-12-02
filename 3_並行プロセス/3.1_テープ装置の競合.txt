@@ -1,0 +1,37 @@
+int NUMBER=テープ装置の総数:
+
+# プロセスA
+while(true)
+{
+    ︙
+    LOAD NUMBER, R # テープを確保
+    DECREMENT R, 1 # 同上
+    STORE NUMBER, R # 同上
+    ︙
+    LOAD NUMBER, R # テープを解放
+    DECREMENT R,1 # 同上
+    STORE NUMBER, R # 同上
+    ︙
+
+# プロセス B
+while(true)
+{
+    ︙
+    LOAD NUMBER, R # テープを確保
+    DECREMENT R, 1 # 同上
+    STORE NUMBER, R # 同上
+    ︙
+    LOAD NUMBER, R # テープを解放
+    DECREMENT R,1 # 同上
+    STORE NUMBER, R # 同上
+    ︙
+
+'''
+図3.1 テープ装置の競合
+
+R レジスタ番号
+LOAD NUMBER, R NUMBERの内容をRへロードする
+INCREMENT R, 1 Rを1だけ増加させる
+DECREMENT R, 1 Rを1だけ減少させる
+STORE NUMBER, R Rの内容を NUMBERへ記憶する
+'''
